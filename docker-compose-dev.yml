@@ -1,6 +1,14 @@
 version: '3.7'
 services:
 
+  osrm:
+    deploy:
+      restart_policy:
+        condition: any 
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
   traccar:
     deploy:
       restart_policy:

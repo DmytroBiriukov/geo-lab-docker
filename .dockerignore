@@ -1,0 +1,6 @@
+.git/
+.gitignore
+docker-compose*
+ldc.sh
+README.md
+.env.template

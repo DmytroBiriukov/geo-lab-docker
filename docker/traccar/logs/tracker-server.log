@@ -460,3 +460,56 @@
 2021-04-21 08:56:06  INFO: user: 1, action: login
 2021-04-21 08:56:57  INFO: user: 1, action: create, object: user, id: 2
 2021-04-21 08:58:06  INFO: Shutting down server...
+2021-04-21 09:59:34  INFO: HikariPool-1 - Starting...
+2021-04-21 09:59:34  INFO: HikariPool-1 - Start completed.
+2021-04-21 09:59:35  INFO: Clearing database change log checksums
+2021-04-21 09:59:35  INFO: Successfully acquired change log lock
+2021-04-21 09:59:35  INFO: Successfully released change log lock
+2021-04-21 09:59:35  INFO: Successfully acquired change log lock
+2021-04-21 09:59:35  INFO: Can not use class liquibase.parser.core.json.JsonChangeLogParser as a Liquibase service because org.yaml.snakeyaml.constructor.BaseConstructor is not in the classpath
+2021-04-21 09:59:35  INFO: Can not use class liquibase.parser.core.yaml.YamlChangeLogParser as a Liquibase service because org.yaml.snakeyaml.constructor.BaseConstructor is not in the classpath
+2021-04-21 09:59:35  INFO: Reading from geo_lab.DATABASECHANGELOG
+2021-04-21 09:59:36  INFO: Reading from geo_lab.DATABASECHANGELOG
+2021-04-21 09:59:36  INFO: Successfully released change log lock
+2021-04-21 09:59:36  INFO: Logging initialized @2533ms to org.eclipse.jetty.util.log.Slf4jLog
+2021-04-21 09:59:37  INFO: Operating system name: Linux version: 4.19.0-6-amd64 architecture: amd64
+2021-04-21 09:59:37  INFO: Java runtime name: OpenJDK 64-Bit Server VM vendor: Oracle Corporation version: 25.282-b08
+2021-04-21 09:59:37  INFO: Memory limit heap: 491mb non-heap: 0mb
+2021-04-21 09:59:37  INFO: Character encoding: UTF-8 charset: UTF-8
+2021-04-21 09:59:37  INFO: Version: 4.12
+2021-04-21 09:59:37  INFO: Starting server...
+2021-04-21 09:59:37  INFO: jetty-9.4.36.v20210114; built: 2021-01-14T16:44:28.689Z; git: 238ec6997c7806b055319a6d11f8ae7564adc0de; jvm 1.8.0_282-b08
+2021-04-21 09:59:37  INFO: Started o.t.w.@721d8ab5{/,null,AVAILABLE}
+2021-04-21 09:59:37  INFO: DefaultSessionIdManager workerName=node0
+2021-04-21 09:59:37  INFO: No SessionScavenger set, using defaults
+2021-04-21 09:59:37  INFO: node0 Scavenging every 600000ms
+2021-04-21 09:59:38  INFO: Started o.e.j.s.ServletContextHandler@5c33008f{/,null,AVAILABLE}
+2021-04-21 09:59:38  INFO: Started ServerConnector@39e67516{HTTP/1.1, (http/1.1)}{0.0.0.0:8082}
+2021-04-21 09:59:38  INFO: Started @4637ms
+2021-04-21 10:01:43  INFO: Shutting down server...
+2021-04-21 10:03:12  INFO: HikariPool-1 - Starting...
+2021-04-21 10:03:12  INFO: HikariPool-1 - Start completed.
+2021-04-21 10:03:12  INFO: Clearing database change log checksums
+2021-04-21 10:03:12  INFO: Successfully acquired change log lock
+2021-04-21 10:03:12  INFO: Successfully released change log lock
+2021-04-21 10:03:13  INFO: Successfully acquired change log lock
+2021-04-21 10:03:13  INFO: Can not use class liquibase.parser.core.json.JsonChangeLogParser as a Liquibase service because org.yaml.snakeyaml.constructor.BaseConstructor is not in the classpath
+2021-04-21 10:03:13  INFO: Can not use class liquibase.parser.core.yaml.YamlChangeLogParser as a Liquibase service because org.yaml.snakeyaml.constructor.BaseConstructor is not in the classpath
+2021-04-21 10:03:13  INFO: Reading from geo_lab.DATABASECHANGELOG
+2021-04-21 10:03:13  INFO: Reading from geo_lab.DATABASECHANGELOG
+2021-04-21 10:03:13  INFO: Successfully released change log lock
+2021-04-21 10:03:13  INFO: Logging initialized @2599ms to org.eclipse.jetty.util.log.Slf4jLog
+2021-04-21 10:03:14  INFO: Operating system name: Linux version: 4.19.0-6-amd64 architecture: amd64
+2021-04-21 10:03:14  INFO: Java runtime name: OpenJDK 64-Bit Server VM vendor: Oracle Corporation version: 25.282-b08
+2021-04-21 10:03:14  INFO: Memory limit heap: 491mb non-heap: 0mb
+2021-04-21 10:03:14  INFO: Character encoding: UTF-8 charset: UTF-8
+2021-04-21 10:03:14  INFO: Version: 4.12
+2021-04-21 10:03:14  INFO: Starting server...
+2021-04-21 10:03:14  INFO: jetty-9.4.36.v20210114; built: 2021-01-14T16:44:28.689Z; git: 238ec6997c7806b055319a6d11f8ae7564adc0de; jvm 1.8.0_282-b08
+2021-04-21 10:03:15  INFO: Started o.t.w.@721d8ab5{/,null,AVAILABLE}
+2021-04-21 10:03:15  INFO: DefaultSessionIdManager workerName=node0
+2021-04-21 10:03:15  INFO: No SessionScavenger set, using defaults
+2021-04-21 10:03:15  INFO: node0 Scavenging every 660000ms
+2021-04-21 10:03:15  INFO: Started o.e.j.s.ServletContextHandler@5c33008f{/,null,AVAILABLE}
+2021-04-21 10:03:15  INFO: Started ServerConnector@39e67516{HTTP/1.1, (http/1.1)}{0.0.0.0:8082}
+2021-04-21 10:03:15  INFO: Started @4598ms
