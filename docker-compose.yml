@@ -1,0 +1,38 @@
+version: '3.7'
+services:
+
+  traccar:
+    container_name: ${PROJECT_ID}_traccar
+    build: 
+      context: ${DOCKER_CONFIG_PATH}/traccar
+    environment:
+      - "PROJECT_ID=${PROJECT_ID}"
+      - "TRACCAR_VERSION=${TRACCAR_VERSION}"
+      - "SERVICE_NAME=traccar"
+    depends_on:
+      - mysql
+    volumes:
+      - "${DOCKER_CONFIG_PATH}/traccar/conf/traccar.xml:/opt/traccar/conf/traccar.xml:ro"
+      - "${DOCKER_CONFIG_PATH}/traccar/logs:/opt/traccar/logs:rw"
+      - "${DOCKER_CONFIG_PATH}/traccar/data:/opt/traccar/data:rw"
+    ports:
+      - "${TRACCAR_EXTERNAL_PORT}:8082"
+      - "5001-5151:5001-5151"
+      - "5001-5151:5001-5151/udp"
+
+  mysql:
+    container_name: ${PROJECT_ID}_mysql
+    build: 
+      context: ${DOCKER_CONFIG_PATH}/mysql
+      args:
+        - "MYSQL_VERSION=${MYSQL_VERSION}"
+    environment:
+      - "MYSQL_ROOT_HOST=%"
+      - "MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}"
+      - "MYSQL_DATABASE=${DB_DATABASE}"
+      - "MYSQL_USER=${DB_USERNAME}"
+      - "MYSQL_PASSWORD=${DB_PASSWORD}"
+      - "SERVICE_NAME=mysql"
+    volumes:
+      - "${HOST_DATABASE_PATH}:/var/lib/mysql"    
+      - "${DOCKER_CONFIG_PATH}/mysql/initdb:/docker-entrypoint-initdb.d"

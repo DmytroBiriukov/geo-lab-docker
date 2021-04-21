@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+
+  mysql:
+    ports:
+      - "${DB_EXTERNAL_PORT}:3306"      
+

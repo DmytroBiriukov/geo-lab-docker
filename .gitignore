@@ -1,0 +1,7 @@
+.vscode
+.env
+.idea/
+.idea/*
+
+docker/mysql/databases/*
+

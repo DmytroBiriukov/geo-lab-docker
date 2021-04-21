@@ -1,0 +1,1 @@
+build start stop up down down-volume ps docker-stop-all docker-remove-all bash mysql mysqldump mysql-import mysql-bash rebuild-traccar rebuild-mysql
