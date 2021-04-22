@@ -43,6 +43,7 @@ RUN apt-get update > /dev/null && \
       libssl1.1 \
       curl \
       libglpk40 \
+      bash \
       > /dev/null && \
     rm -rf /var/lib/apt/lists/* && \
     # Install vroom-express

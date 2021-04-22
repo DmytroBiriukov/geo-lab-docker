@@ -5,3 +5,5 @@
 
 docker/mysql/databases/*
 
+docker/frontend/src/*
+

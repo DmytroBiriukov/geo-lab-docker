@@ -50,9 +50,6 @@ else
     fi 
 
     case "$1" in   
-        refresh-project)     
-            refresh_project
-            ;;
         build)
             docker-compose $DOCKER_COMPOSE_FILE_FLAGS build
             ;;
@@ -82,14 +79,26 @@ else
         docker-remove-all)
             docker rm $(docker ps -a -q)
             ;;
-        test-containers)
-            test_containers
+#osrm
+        osrm-bash)
+            docker-compose $DOCKER_COMPOSE_FILE_FLAGS exec osrm bash
             ;;
-        bash)
-            docker-compose $DOCKER_COMPOSE_FILE_FLAGS exec -u www -w / traccar sh
+        osrm-extract)
+            docker-compose $DOCKER_COMPOSE_FILE_FLAGS exec osrm osrm-extract -p /opt/car.lua /data/{$OSRM_MAP}.osm.pbf
             ;;
-        root-bash)
-            docker-compose $DOCKER_COMPOSE_FILE_FLAGS exec -u root -w / traccar bash
+        osrm-partition)
+            docker-compose $DOCKER_COMPOSE_FILE_FLAGS exec osrm osrm-partition /data/{$OSRM_MAP}.osrm
+            ;;
+        osrm-customize)
+            docker-compose $DOCKER_COMPOSE_FILE_FLAGS exec osrm osrm-customize /data/{$OSRM_MAP}.osrm
+            ;;
+#vroom
+        vroom-bash)
+            docker-compose $DOCKER_COMPOSE_FILE_FLAGS exec vroom bash
+            ;;
+#traccar
+        traccar-bash)
+            docker-compose $DOCKER_COMPOSE_FILE_FLAGS exec traccar bash
             ;;
 #mysql
         mysql)
@@ -105,12 +114,21 @@ else
 	        docker-compose $DOCKER_COMPOSE_FILE_FLAGS exec mysql bash
             ;;
 ### Rebuild certain services
+        rebuild-osrm)
+            docker-compose up -d --no-deps --build osrm
+            ;;
+        rebuild-vroom)
+            docker-compose up -d --no-deps --build vroom
+            ;;            
         rebuild-mysql)
             docker-compose up -d --no-deps --build mysql
             ;;
         rebuild-traccar)
             docker-compose up -d --no-deps --build traccar
             ;;
+        rebuild-frontend)
+            docker-compose up -d --no-deps --build frontend
+            ;;            
         *)            
             echo -e "\e[31mWrong command supplied!" 
             show_allowed_commands

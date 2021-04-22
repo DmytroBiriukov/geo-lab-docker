@@ -5,11 +5,30 @@ services:
     container_name: ${PROJECT_ID}_osrm
     image: osrm/osrm-backend
     restart: always
+    environment:
+      - "SERVICE_NAME=osrm"
     ports:
       - "${OSRM_EXTERNAL_PORT}:5000"
     volumes:
       - "${DOCKER_CONFIG_PATH}/osrm/data:/data"
-    command: "osrm-routed --max-matching-size 1000 --max-table-size 1000 --max-viaroute-size 1000 --algorithm mld /data/${OSRM_MAP}"
+    command: "osrm-routed --max-matching-size 1000 --max-table-size 1000 --max-viaroute-size 1000 --algorithm mld /data/${OSRM_MAP}.osrm"
+
+  vroom:
+    container_name: ${PROJECT_ID}_vroom
+    build: 
+      context: ${DOCKER_CONFIG_PATH}/vroom
+    environment:
+      - "PROJECT_ID=${PROJECT_ID}"
+      - "VROOM_RELEASE=${VROOM_RELEASE}"
+      - "VROOM_EXPRESS_RELEASE=${VROOM_EXPRESS_RELEASE}"
+      - "VROOM_ROUTER=${VROOM_ROUTER}"
+      - "SERVICE_NAME=vroom"
+    depends_on:
+      - osrm
+    volumes:
+      - "${DOCKER_CONFIG_PATH}/vroom/conf:/conf:rw"  
+    ports:
+      - "${VROOM_EXTERNAL_PORT}:3000"
 
   traccar:
     container_name: ${PROJECT_ID}_traccar
@@ -46,3 +65,15 @@ services:
     volumes:
       - "${HOST_DATABASE_PATH}:/var/lib/mysql"    
       - "${DOCKER_CONFIG_PATH}/mysql/initdb:/docker-entrypoint-initdb.d"
+
+  frontend:
+    container_name: ${PROJECT_ID}_frontend
+    build: 
+      context: ${DOCKER_CONFIG_PATH}/frontend
+    environment: 
+      - "VROOM_EXTERNAL_PORT=${VROOM_EXTERNAL_PORT}"
+      - "VROOM_EXTERNAL_HOST=${VROOM_EXTERNAL_HOST}"
+    depends_on:
+      - vroom
+    ports:
+      - "9966:9966"
